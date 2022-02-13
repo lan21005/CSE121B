@@ -1,0 +1,396 @@
+<!-- 
+CSE 121B: Lesson 6 
+Final Project: Jon Lanenga 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSE 121b: Week 06 | Project | Jon Lanenga's Submission</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kalam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script defer src="scripts/main.js"></script>
+    <script defer src="scripts/formulas.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.immersionrc.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"
+    ></script>
+  </head>
+
+  <body>
+    <nav>
+      <ul id="menu">
+        <li><a id="toggleMenu">&equiv;</a></li>
+        <li><a href="../../wk1/week01/index.html">Home</a></li>
+        <li><a href="../../wk2/week02/task2.html">Lesson 2</a></li>
+        <li><a href="../../wk3/week03/task3.html">Lesson 3</a></li>
+        <li><a href="../../wk4/week04/task4.html">Lesson 4</a></li>
+        <li><a href="../../wk5/week05/task5.html">Lesson 5</a></li>
+        <li><a href="#" class="active">Final Project</a></li>
+      </ul>
+    </nav>
+    <div id="title">
+      <h1>Spectrum Management Tools</h1>
+      <hr />
+    </div>
+    <header>
+      <h2>Daily Motivational Corner</h2>
+      <div id="motivation">
+        <h4>Daily Picture</h4>
+        <img id="photo" src="images/placeholder.png" alt="Photo" />
+        <div class="vl"></div>
+        <h4>Daily Quote</h4>
+        <p id="message1">Motivational Quote</p>
+      </div>
+      <hr />
+    </header>
+    <h2 id="title2">Common Calculations</h2>
+    <main>
+      <section id="functions">
+        <article>
+          <h2>Effective Isotropic Radiated Power</h2>
+          <div>
+            <table>
+              <tr>
+                <td width="200"><strong>Power at the Transmitter</strong></td>
+                <td width="100">
+                  <input
+                    type="text"
+                    size="7"
+                    class="inpVal"
+                    id="tx_power"
+                    name="tx_power"
+                  />
+                </td>
+                <td class="style1">Watts</td>
+              </tr>
+
+              <tr>
+                <td width="200"><strong>Line loss of the cable</strong></td>
+                <td width="100">
+                  <input
+                    type="text"
+                    size="7"
+                    class="inpVal"
+                    id="line_loss"
+                    name="line_loss"
+                  />
+                </td>
+                <td class="style1">dB</td>
+              </tr>
+
+              <tr>
+                <td width="200"><strong>Antenna Gain</strong></td>
+                <td width="100">
+                  <input
+                    type="text"
+                    size="7"
+                    class="inpVal"
+                    id="antenna_gain"
+                    name="antenna_gain"
+                  />
+                </td>
+                <td class="style1">dBi</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="button"
+                    id="calculateEIRP"
+                    value="Calculate EIRP"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>EIRP</td>
+                <td>
+                  <input
+                    type="text"
+                    size="7"
+                    class="opVal"
+                    id="total_eirp"
+                    name="total_eirp"
+                    disabled
+                  />
+                </td>
+                <td class="style1">dBm</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+        <article>
+          <h2>Line of Sight and Radio Horizonr</h2>
+          <div>
+            <table>
+              <tr>
+                <td width="200"><strong>Height of Antenna</strong></td>
+                <td width="100">
+                  <input
+                    type="text"
+                    size="7"
+                    class="inpVal"
+                    id="antenna_height"
+                    name="antenna_height"
+                  />
+                </td>
+                <td class="style1">Meters</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input
+                    type="button"
+                    id="calculate_LOS"
+                    value="Calculate LOS/RH"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Line of Sight Distance</td>
+                <td>
+                  <input
+                    type="text"
+                    size="7"
+                    class="opVal"
+                    id="radio_los"
+                    name="radio_los"
+                    disabled
+                  />
+                </td>
+                <td class="style1">Km</td>
+              </tr>
+              <tr>
+                <td>Radio Horizon</td>
+                <td>
+                  <input
+                    type="text"
+                    size="7"
+                    class="opVal"
+                    id="radio_horizon"
+                    name="radio_horizon"
+                    disabled
+                  />
+                </td>
+                <td class="style1">Km</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <article>
+          <h2>Power Conversion - dBm to Watts</h2>
+          <div>
+            <table>
+              <tr>
+                <td width="140"><strong>Power</strong></td>
+                <td width="100">
+                  <input
+                    type="text"
+                    size="7"
+                    class="inpVal"
+                    id="power_input"
+                    name="power_input"
+                  />
+                </td>
+                <td class="style1">dBm</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input
+                    type="button"
+                    id="calculate_power"
+                    value="Calculate power"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Power</td>
+                <td>
+                  <input
+                    type="text"
+                    size="7"
+                    class="opVal"
+                    id="power_watts"
+                    name="power_watts"
+                    disabled
+                  />
+                </td>
+                <td class="style1">Watts</td>
+              </tr>
+            </table>
+          </div>
+        </article>
+
+        <article>
+          <h2>RF Link Range</h2>
+          <div class="RF_Link_Range">
+            <div class="rf_link_range_2">
+              <table>
+                <tr>
+                  <td width="140"><strong>Frequency</strong></td>
+                  <td width="100">
+                    <input type="text" size="7" class="inpVal" id="freqghz" />
+                  </td>
+                  <td class="style1">GHz</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Tx Power</strong>
+                  </td>
+                  <td>
+                    <input type="text" size="7" class="inpVal" id="txdbm" />
+                  </td>
+                  <td class="style1">dBm</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Rx Antenna Gain</strong>
+                  </td>
+                  <td>
+                    <input type="text" size="7" class="inpVal" id="rxantgain" />
+                  </td>
+                  <td class="style1">dBi</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Tx Antenna Gain</strong>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      size="7"
+                      class="inpVal"
+                      id="txantgain"
+                      onclick="return txantgain_onclick()"
+                    />
+                  </td>
+                  <td class="style1">dBi</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Link Margin</strong>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      size="7"
+                      class="inpVal"
+                      id="linkmargin"
+                    />
+                  </td>
+                  <td class="style1">dB</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Rx Sensitivity</strong>
+                  </td>
+                  <td>
+                    <input type="text" size="7" class="inpVal" id="rxsens" />
+                  </td>
+                  <td class="style1">dBm&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="button"
+                      id="EstimateRange"
+                      value="Estimate Range"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Range (km)</td>
+                  <td>
+                    <input
+                      type="text"
+                      size="7"
+                      class="opVal"
+                      id="rangekm"
+                      name="rangekm"
+                      disabled
+                    />
+                  </td>
+                  <td class="style1">km</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <hr />
+      <section>
+        <h1>Spectrum sources and links</h1>
+        <button class="button2">
+          <a href="https://ntia.gov" target="_blank">NTIA Website</a>
+        </button>
+        <button class="button2">
+          <a
+            href="https://www.ntia.doc.gov/files/ntia/publications/section_8.2.30_form_for_interference_reporting.pdf"
+            target="_blank"
+            >NTIA Interference Report</a
+          >
+        </button>
+        <button class="button2">
+          <a
+            href="https://www.ntia.doc.gov/files/ntia/publications/january_2016_spectrum_wall_chart.pdf"
+            target="_blank"
+            >NTIA Spectrum Allocation Chart</a
+          >
+        </button>
+        <button class="button2">
+          <a href="http://www.airnav.com/airports" target="_blank"
+            >AIRNAV Airport Information</a
+          >
+        </button>
+        <button class="button2">
+          <a href="http://www.gpsvisualizer.com/elevation" target="_blank"
+            >GPS Visualizer - Elevtation Map</a
+          >
+        </button>
+        <button class="button2">
+          <a href="http://getlatlong.net" target="_blank">GPS Mapping Tool</a>
+        </button>
+      </section>
+      <hr />
+
+      <section>
+        <h2>Definitions</h2>
+        <span id="definitions"></span>
+      </section>
+      <hr />
+
+      <section>
+        <h2>Point of Contact Information</h2>
+        <div>
+          <label>Name:</label>
+          <span id="name"></span>
+        </div>
+        <div>
+          <label>Email Address:</label>
+          <span id="email"></span>
+        </div>
+        <div>
+          <label>Slack:</label>
+          <span id="slack"></span>
+        </div>
+        <div>
+          <label>GitHub:</label>
+          <span id="github"></span>
+        </div>
+        <hr />
+      </section>
+    </main>
+
+    <br />
+    <footer>
+      <h4 id="lastaccessed">Last Accessed</h4>
+    </footer>
+  </body>
+</html>
